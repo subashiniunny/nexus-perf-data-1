@@ -5,12 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>io.takari.nexus.perf.data.npm</groupId>
+    <groupId>io.takari.nexus.perf.data.maven</groupId>
     <artifactId>parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>scenario01</artifactId>
+  <artifactId>maven02</artifactId>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
 
@@ -22,4 +22,5 @@
       </plugin>
     </plugins>
   </build>
+
 </project>

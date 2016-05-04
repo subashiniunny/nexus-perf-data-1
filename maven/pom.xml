@@ -16,7 +16,7 @@
   <name>${project.groupId}:${project.artifactId}</name>
 
   <modules>
-    <module>scenario01</module>
-    <module>scenario02</module>
+    <module>maven01</module>
+    <module>maven02</module>
   </modules>
 </project>

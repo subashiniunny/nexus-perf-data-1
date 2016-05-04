@@ -1,4 +1,4 @@
 # npm data packages
 
 Packages:
-* [scenario01](scenario01/) - a "plain download" scenario
+* [npm01](npm01/) - a "plain download" scenario

@@ -1,5 +1,5 @@
 # Maven data packages
 
 Packages:
-* [scenario01](scenario01/) - a "plain download" scenario
-* [scenario02](scenario02/) - a simple deploying scenario
+* [maven01](maven01/) - a "plain download" scenario
+* [maven02](maven02/) - a simple deploying scenario
