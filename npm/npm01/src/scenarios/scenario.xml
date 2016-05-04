@@ -10,6 +10,28 @@
 <scenario>
     <name>scenario</name>
     <duration>15 MINUTES</duration>
+    <configurators>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>npm-hosted</repo>
+            <format>npm</format>
+            <type>hosted</type>
+        </configurator>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>npm-proxy</repo>
+            <format>npm</format>
+            <type>proxy</type>
+            <proxyOf>https://registry.npmjs.org/</proxyOf>
+        </configurator>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>npm-all</repo>
+            <format>npm</format>
+            <type>group</type>
+            <members>npm-hosted,npm-proxy</members>
+        </configurator>
+    </configurators>
     <swarms>
         <swarm>
             <name>npm-3.8.8-build</name>
