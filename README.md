@@ -2,6 +2,8 @@
 
 This build produces data packages for Nexus Performance Test Suite.
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.takari.nexus.perf.data/parent/badge.svg?subject=io.takari.nexus.perf.data:parent)](https://maven-badges.herokuapp.com/maven-central/io.takari.nexus.perf.data/parent)
+
 Excercised formats:
 * [Apache Maven](maven/)
 * [npm](npm/)
