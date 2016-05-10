@@ -8,11 +8,11 @@
 
 -->
 <scenario>
-    <name>scenario</name>
+    <name>scenario02</name>
     <duration>15 MINUTES</duration>
     <swarms>
         <swarm>
-            <name>deploy-maven-3.3.4-dependencies</name>
+            <name>deploy-maven-artifacts</name>
             <numberOfClients>120</numberOfClients>
             <rate>5/SECOND</rate>
             <operation>
