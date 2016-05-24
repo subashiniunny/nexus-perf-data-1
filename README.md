@@ -13,7 +13,7 @@ Excercised formats:
 Steps:
 * Get Nexus up up running.
 * Download latest `jar-with-dependencies.jar` from [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.takari.nexus/nexus-perf/badge.svg?subject=Nexus%20Performance%20Suite)](https://maven-badges.herokuapp.com/maven-central/io.takari.nexus/nexus-perf)
-* Download the required data package tarball.
+* Download the required data package tarball (or the "all" one having all scenarios).
 * Untar the "data" tarball, it will create a sub-directory from current working directory, example:
   ```
   $ tar xfvz nexus-perf-1.0.1-standard-data.tar.gz
