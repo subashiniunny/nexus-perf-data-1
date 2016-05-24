@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.takari.nexus.perf.data</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0.3-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>all</artifactId>
+  <packaging>pom</packaging>
+  <name>${project.groupId}:${project.artifactId}</name>
+
+  <dependencies>
+    <!-- maven -->
+    <dependency>
+      <groupId>io.takari.nexus.perf.data.maven</groupId>
+      <artifactId>maven01</artifactId>
+      <version>${project.version}</version>
+      <classifier>data</classifier>
+      <type>tar.gz</type>
+    </dependency>
+
+    <dependency>
+      <groupId>io.takari.nexus.perf.data.maven</groupId>
+      <artifactId>maven02</artifactId>
+      <version>${project.version}</version>
+      <classifier>data</classifier>
+      <type>tar.gz</type>
+    </dependency>
+
+    <dependency>
+      <groupId>io.takari.nexus.perf.data.maven</groupId>
+      <artifactId>maven03</artifactId>
+      <version>${project.version}</version>
+      <classifier>data</classifier>
+      <type>tar.gz</type>
+    </dependency>
+
+    <dependency>
+      <groupId>io.takari.nexus.perf.data.maven</groupId>
+      <artifactId>maven04</artifactId>
+      <version>${project.version}</version>
+      <classifier>data</classifier>
+      <type>tar.gz</type>
+    </dependency>
+
+    <!-- npm -->
+    <dependency>
+      <groupId>io.takari.nexus.perf.data.npm</groupId>
+      <artifactId>npm01</artifactId>
+      <version>${project.version}</version>
+      <classifier>data</classifier>
+      <type>tar.gz</type>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
