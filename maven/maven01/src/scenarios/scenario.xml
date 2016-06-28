@@ -19,7 +19,7 @@
                 <class>com.sonatype.nexus.perftest.maven.DownloadOperation</class>
                 <repo>public</repo>
                 <paths>
-                  <class>com.sonatype.nexus.perftest.maven.CsvLogParser</class>
+                  <class>com.sonatype.nexus.perftest.paths.CsvLogParser</class>
                   <logfile>data/maven-3.3.4-build-artifact-access.csv.gz</logfile>
                 </paths>
             </operation>
@@ -32,7 +32,7 @@
                 <class>com.sonatype.nexus.perftest.maven.DownloadOperation</class>
                 <repo>public</repo>
                 <paths>
-                  <class>com.sonatype.nexus.perftest.maven.HttpdLogParser</class>
+                  <class>com.sonatype.nexus.perftest.paths.HttpdLogParser</class>
                   <logfile>data/maven-3.1.0-build-artifact-access.log.gz</logfile>
                   <prefix>/content/groups/public/</prefix>
                 </paths>
