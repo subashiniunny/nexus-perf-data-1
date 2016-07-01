@@ -3,18 +3,21 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>io.takari.nexus.perf.data</groupId>
+    <groupId>io.takari.nexus.perf.data.npm</groupId>
     <artifactId>parent</artifactId>
     <version>1.0.5-SNAPSHOT</version>
   </parent>
 
-  <groupId>io.takari.nexus.perf.data.npm</groupId>
-  <artifactId>parent</artifactId>
+  <artifactId>npm02</artifactId>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
 
-  <modules>
-    <module>npm01</module>
-    <module>npm02</module>
-  </modules>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
 </project>

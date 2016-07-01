@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (c) 2007-2013 Sonatype, Inc. All rights reserved.
+
+    This program and the accompanying materials are made available under the terms of the Eclipse Public License Version 1.0,
+    which accompanies this distribution and is available at http://www.eclipse.org/legal/epl-v10.html.
+
+-->
+<scenario>
+    <name>scenario</name>
+    <duration>15 MINUTES</duration>
+    <configurators>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>npm-hosted</repo>
+            <format>npm</format>
+            <type>hosted</type>
+        </configurator>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>npm-proxy</repo>
+            <format>npm</format>
+            <type>proxy</type>
+            <proxyOf>https://registry.npmjs.org/</proxyOf>
+        </configurator>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>npm-all</repo>
+            <format>npm</format>
+            <type>group</type>
+            <members>npm-hosted,npm-proxy</members>
+        </configurator>
+    </configurators>
+    <swarms>
+        <swarm>
+            <name>install-native-client</name>
+            <numberOfClients>10</numberOfClients>
+            <rate>5/SECOND</rate>
+            <operation>
+                <class>com.sonatype.nexus.perftest.npm.InstallOperation</class>
+                <repo>npm-all</repo>
+                <packages>
+                    <package>
+                        <name>@walmartlabs/producer</name>
+                        <json>data/@walmartlabs/producer/package.json</json>
+                    </package>
+                    <package>
+                        <name>jquery</name>
+                    </package>
+                </packages>
+            </operation>
+        </swarm>
+    </swarms>
+</scenario>

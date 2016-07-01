@@ -54,6 +54,14 @@
       <classifier>data</classifier>
       <type>tar.gz</type>
     </dependency>
+
+    <dependency>
+      <groupId>io.takari.nexus.perf.data.npm</groupId>
+      <artifactId>npm02</artifactId>
+      <version>${project.version}</version>
+      <classifier>data</classifier>
+      <type>tar.gz</type>
+    </dependency>
   </dependencies>
 
   <build>
