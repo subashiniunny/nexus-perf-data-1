@@ -1,6 +1,14 @@
 # Scenario 02
 
-Simple "deploying" scenario, only deploys artifacts to Nexus.
+**UNREALISTIC SCENARIO: AVOID IT'S USE UNLESS ON PURPOSE**
+
+Kinda a "deploying" scenario, it deploys artifact to newly 
+created repository and then drops the repository. Not very 
+representative, given create and drop of repositories are
+"heavy" operations and it saturates the tasks and event bus.
+Creating/Dropping repositories with NX2 will never likely
+to happen several times per second on an instance, you have
+some problem if you do try to do that.
 
 Duration: 15 minutes
 
