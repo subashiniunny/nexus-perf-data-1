@@ -8,8 +8,30 @@
 
 -->
 <scenario>
-    <name>scenario01</name>
+    <name>maven01</name>
     <duration>15 MINUTES</duration>
+    <configurators>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>maven01-hosted</repo>
+            <format>maven</format>
+            <type>hosted</type>
+        </configurator>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>maven01-proxy</repo>
+            <format>maven</format>
+            <type>proxy</type>
+            <proxyOf>https://repo1.maven.org/maven2/</proxyOf>
+        </configurator>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>maven01-all</repo>
+            <format>maven</format>
+            <type>group</type>
+            <members>maven01-hosted,maven01-proxy</members>
+        </configurator>
+    </configurators>
     <swarms>
         <swarm>
             <name>consume-maven-3.3.4-dependencies</name>
@@ -17,7 +39,7 @@
             <rate>5/SECOND</rate>
             <operation>
                 <class>com.sonatype.nexus.perftest.maven.DownloadOperation</class>
-                <repo>public</repo>
+                <repo>maven01-all</repo>
                 <paths>
                   <class>com.sonatype.nexus.perftest.paths.CsvLogParser</class>
                   <logfile>data/maven-3.3.4-build-artifact-access.csv.gz</logfile>
@@ -30,7 +52,7 @@
             <rate>5/SECOND</rate>
             <operation>
                 <class>com.sonatype.nexus.perftest.maven.DownloadOperation</class>
-                <repo>public</repo>
+                <repo>maven01-all</repo>
                 <paths>
                   <class>com.sonatype.nexus.perftest.paths.HttpdLogParser</class>
                   <logfile>data/maven-3.1.0-build-artifact-access.log.gz</logfile>

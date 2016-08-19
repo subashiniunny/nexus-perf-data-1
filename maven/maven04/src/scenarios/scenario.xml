@@ -8,8 +8,30 @@
 
 -->
 <scenario>
-    <name>scenario04</name>
+    <name>maven04</name>
     <duration>15 MINUTES</duration>
+    <configurators>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>maven04-hosted</repo>
+            <format>maven</format>
+            <type>hosted</type>
+        </configurator>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>maven04-proxy</repo>
+            <format>maven</format>
+            <type>proxy</type>
+            <proxyOf>https://repo1.maven.org/maven2/</proxyOf>
+        </configurator>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>maven04-all</repo>
+            <format>maven</format>
+            <type>group</type>
+            <members>maven04-hosted,maven04-proxy</members>
+        </configurator>
+    </configurators>
     <swarms>
         <swarm>
             <name>deploy-maven-artifacts1</name>
@@ -19,7 +41,7 @@
                 <class>com.sonatype.nexus.perftest.maven.RepositoryDeployOperation</class>
                 <artifactsBasedir>data/artifacts</artifactsBasedir>
                 <pomTemplate>data/pom.xml</pomTemplate>
-                <repo>releases</repo>
+                <repo>maven04-hosted</repo>
                 <groupId>group1</groupId>
             </operation>
         </swarm>
@@ -31,7 +53,7 @@
                 <class>com.sonatype.nexus.perftest.maven.RepositoryDeployOperation</class>
                 <artifactsBasedir>data/artifacts</artifactsBasedir>
                 <pomTemplate>data/pom.xml</pomTemplate>
-                <repo>releases</repo>
+                <repo>maven04-hosted</repo>
                 <groupId>group2</groupId>
             </operation>
         </swarm>

@@ -8,8 +8,30 @@
 
 -->
 <scenario>
-    <name>scenario05</name>
+    <name>maven05</name>
     <duration>15 MINUTES</duration>
+    <configurators>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>maven05-hosted</repo>
+            <format>maven</format>
+            <type>hosted</type>
+        </configurator>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>maven05-proxy</repo>
+            <format>maven</format>
+            <type>proxy</type>
+            <proxyOf>https://repo1.maven.org/maven2/</proxyOf>
+        </configurator>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>maven05-all</repo>
+            <format>maven</format>
+            <type>group</type>
+            <members>maven05-hosted,maven05-proxy</members>
+        </configurator>
+    </configurators>
     <swarms>
         <swarm>
             <name>consume-random-paths1</name>
@@ -20,7 +42,7 @@
                 <repo>public</repo>
                 <paths>
                   <class>com.sonatype.nexus.perftest.paths.GeneratedDownloadPaths</class>
-                  <prefix>/content/groups/public/consume-random-paths1</prefix>
+                  <prefix>/content/groups/maven05-all/consume-random-paths1</prefix>
                 </paths>
             </operation>
         </swarm>
@@ -33,7 +55,7 @@
                 <repo>public</repo>
                 <paths>
                   <class>com.sonatype.nexus.perftest.paths.GeneratedDownloadPaths</class>
-                  <prefix>/content/groups/public/consume-random-paths2</prefix>
+                  <prefix>/content/groups/maven05-all/consume-random-paths2</prefix>
                 </paths>
             </operation>
         </swarm>
@@ -46,7 +68,7 @@
                 <repo>public</repo>
                 <paths>
                   <class>com.sonatype.nexus.perftest.paths.GeneratedDownloadPaths</class>
-                  <prefix>/content/groups/public/consume-random-paths3</prefix>
+                  <prefix>/content/groups/maven05-all/consume-random-paths3</prefix>
                 </paths>
             </operation>
         </swarm>
