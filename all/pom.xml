@@ -46,6 +46,14 @@
       <type>tar.gz</type>
     </dependency>
 
+    <dependency>
+      <groupId>io.takari.nexus.perf.data.maven</groupId>
+      <artifactId>maven05</artifactId>
+      <version>${project.version}</version>
+      <classifier>data</classifier>
+      <type>tar.gz</type>
+    </dependency>
+
     <!-- npm -->
     <dependency>
       <groupId>io.takari.nexus.perf.data.npm</groupId>
