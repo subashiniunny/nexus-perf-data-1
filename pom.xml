@@ -24,6 +24,7 @@
   <modules>
     <module>maven</module>
     <module>npm</module>
+    <module>docker</module>
     <module>all</module>
   </modules>
 

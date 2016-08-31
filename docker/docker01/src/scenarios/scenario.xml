@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (c) 2007-2013 Sonatype, Inc. All rights reserved.
+
+    This program and the accompanying materials are made available under the terms of the Eclipse Public License Version 1.0,
+    which accompanies this distribution and is available at http://www.eclipse.org/legal/epl-v10.html.
+
+-->
+<scenario>
+    <name>docker01</name>
+    <duration>15 MINUTES</duration>
+    <configurators>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>docker01-hosted</repo>
+            <format>docker</format>
+            <type>hosted</type>
+        </configurator>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>docker01-proxy</repo>
+            <format>docker</format>
+            <type>proxy</type>
+            <proxyOf>https://registry-1.docker.io/</proxyOf>
+        </configurator>
+        <configurator>
+            <class>com.sonatype.nexus.perftest.config.CreateRepository</class>
+            <repo>docker01-all</repo>
+            <format>docker</format>
+            <type>group</type>
+            <members>docker01-hosted,docker01-proxy</members>
+        </configurator>
+    </configurators>
+    <swarms>
+        <swarm>
+            <name>docker01-1</name>
+            <numberOfClients>120</numberOfClients>
+            <rate>5/SECOND</rate>
+            <operation>
+                <class>com.sonatype.nexus.perftest.operation.DownloadOperation</class>
+                <repo>docker01-all</repo>
+                <paths>
+                    <class>com.sonatype.nexus.perftest.paths.HttpdLogParser</class>
+                    <logfile>data/docker-request.log.gz</logfile>
+                    <prefix>/nexus/repository/dockerhub/</prefix>
+                </paths>
+            </operation>
+        </swarm>
+        <swarm>
+            <name>docker01-2</name>
+            <numberOfClients>120</numberOfClients>
+            <rate>5/SECOND</rate>
+            <operation>
+                <class>com.sonatype.nexus.perftest.operation.DownloadOperation</class>
+                <repo>docker01-all</repo>
+                <paths>
+                    <class>com.sonatype.nexus.perftest.paths.HttpdLogParser</class>
+                    <logfile>data/docker-request.log.gz</logfile>
+                    <prefix>/nexus/repository/dockerhub/</prefix>
+                </paths>
+            </operation>
+        </swarm>
+    </swarms>
+</scenario>
