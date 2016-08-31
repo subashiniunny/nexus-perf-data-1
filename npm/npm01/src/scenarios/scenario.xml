@@ -22,6 +22,7 @@
             <repo>npm-proxy</repo>
             <format>npm</format>
             <type>proxy</type>
+            <deleteRepository>true</deleteRepository>
             <proxyOf>https://registry.npmjs.org/</proxyOf>
         </configurator>
         <configurator>
@@ -29,6 +30,7 @@
             <repo>npm-all</repo>
             <format>npm</format>
             <type>group</type>
+            <deleteRepository>true</deleteRepository>
             <members>npm-hosted,npm-proxy</members>
         </configurator>
     </configurators>
