@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>io.takari.nexus.perf.data.maven</groupId>
+    <groupId>io.takari.nexus.perf.data.docker</groupId>
     <artifactId>parent</artifactId>
     <version>1.0.9-SNAPSHOT</version>
   </parent>
 
-  <artifactId>maven03</artifactId>
+  <artifactId>docker01</artifactId>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
 

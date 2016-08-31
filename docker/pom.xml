@@ -3,22 +3,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>io.takari.nexus.perf.data.maven</groupId>
+    <groupId>io.takari.nexus.perf.data</groupId>
     <artifactId>parent</artifactId>
     <version>1.0.9-SNAPSHOT</version>
   </parent>
 
-  <artifactId>maven03</artifactId>
+  <groupId>io.takari.nexus.perf.data.docker</groupId>
+  <artifactId>parent</artifactId>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
-
+  <modules>
+    <module>docker01</module>
+  </modules>
 </project>
