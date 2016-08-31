@@ -39,7 +39,7 @@
             <rate>5/SECOND</rate>
             <operation>
                 <class>com.sonatype.nexus.perftest.operation.DownloadOperation</class>
-                <repo>docker01-all</repo>
+                <path-prefix>repository/docker01-all</path-prefix>
                 <paths>
                     <class>com.sonatype.nexus.perftest.paths.HttpdLogParser</class>
                     <logfile>data/docker-request.log.gz</logfile>
@@ -53,7 +53,7 @@
             <rate>5/SECOND</rate>
             <operation>
                 <class>com.sonatype.nexus.perftest.operation.DownloadOperation</class>
-                <repo>docker01-all</repo>
+                <path-prefix>repository/docker01-all</path-prefix>
                 <paths>
                     <class>com.sonatype.nexus.perftest.paths.HttpdLogParser</class>
                     <logfile>data/docker-request.log.gz</logfile>
